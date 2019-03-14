@@ -6,7 +6,17 @@
 #include <iostream>
 #include <fstream>
 #include <ctype.h>
+#include <exception>
 using namespace std;
+
+FINException::FINException() :exception("The input file is invalid!\n")
+{
+}
+
+FINException::~FINException()
+{
+}
+
 FileInput::FileInput()
 {
 	size = 0;
@@ -45,15 +55,26 @@ void FileInput::process_line(char warr[]) {
 		i++;// move to the next char
 	}
 }
-void FileInput::readFile(string path) {
+bool FileInput::readFile(string path) {
 	ifstream rdFile;
-	rdFile.open(path);
+	try
+	{
+		rdFile.open(path);
+	}
+	catch (const std::exception&)
+	{
+		//cout << "Cannot open the file!" << endl;
+		throw FINException();
+		return false;
+	}
+	
 	char wordArr[5000];
 	while (!rdFile.eof())
 	{
 		rdFile >> wordArr;
 		process_line(wordArr);
 	}
+	return true;
 	//cout << inArr.size() << endl;
 	//cout << inArr.at(0) << endl;
 }

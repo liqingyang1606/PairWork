@@ -1,0 +1,21 @@
+[2019-03-14 19:36:32] [info] Start Program:
+Path:"D:\CppProgram\PairWork5\Debug\PairWork5.exe"
+Arguments:-c D:\\word_chain\\05.txt 
+Working directory: "D:\CppProgram\PairWork5\PairWork5\"
+Modules: Selected: D:\CppProgram\PairWork5\Debug\PairWork5.exe D:\CppProgram\PairWork5\Debug\CoreUnitTest.dll Excluded: 
+Sources: Selected: D:\CppProgram\PairWork5\PairWork5 D:\CppProgram\PairWork5\CoreUnitTest Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\liqin\AppData\Local\Temp\bh10b2zc.i4d 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2019-03-14 19:36:32] [info] Module: D:\CppProgram\PairWork5\Debug\PairWork5.exe is selected because it matches selected pattern: 
+[2019-03-14 19:36:32] [info] ----------------------------------------------------
+[2019-03-14 19:36:32] [info] Coverage binary generated in file: C:\Users\liqin\AppData\Local\Temp\bh10b2zc.i4d
+[2019-03-14 19:36:32] [info] ----------------------------------------------------

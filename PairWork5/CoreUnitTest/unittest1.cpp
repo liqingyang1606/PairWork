@@ -6,6 +6,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 #include "..\\PairWork5\\wordHandler.h"
 #include <vector>
 #include <string>
+#include <exception>
 using namespace std;
 
 namespace CoreUnitTest
@@ -76,6 +77,19 @@ namespace CoreUnitTest
 			wh.gen_chain_word(words, 0, result, 'l', 0, false);
 			Assert::IsTrue(result[0] == "leaf");
 			Assert::IsTrue(result[1] == "fox");
+		}
+
+		TEST_METHOD(TestMethod6) {
+			FileInput fin;
+			fin.readFile("D:\\word_chain\\04.txt");
+			wordHandler wh(fin);
+			char *words[20];
+			vector<string> result;
+			wh.gen_chain_word(words, 0, result, '\0', '\0', false);
+			Assert::IsTrue(result[0] == "algebra");
+			Assert::IsTrue(result[1] == "apple");
+			Assert::IsTrue(result[2] == "elephant");
+			Assert::IsTrue(result.size() == 3);
 		}
 	};
 }

@@ -40,6 +40,17 @@ bool wordHandler::meet_req(char head, char tail, vector<string> words) {
 	}
 	return (bh && bt);
 }
+bool wordHandler::can_insert(string current, vector<string> chain) {
+	int length = chain.size();
+	for (int i = 0; i < length; i++)
+	{
+		if (current.compare(chain[i]) == 0)
+		{
+			return false;// cannot insert
+		}
+	}
+	return true;
+}
 // calculate the length regarding the number of words
 int wordHandler::gen_chain_word(char* words[], int len, vector<string> &wchain, char head, char tail, bool enable_loop) {
 	char front, rear;
@@ -69,6 +80,10 @@ int wordHandler::gen_chain_word(char* words[], int len, vector<string> &wchain, 
 			}
 			front = fin.inArr[j].at(0);
 			if (front == rear) {
+				if ( ! can_insert(fin.inArr[j], tchain))
+				{
+					continue;
+				}
 				count++;
 				tchain.push_back(fin.inArr[j]);// current rear of the chain
 				length = fin.inArr[j].size();
@@ -126,12 +141,16 @@ int wordHandler::gen_chain_char(char* words[], int len, vector<string> &wchain, 
 			front = fin.inArr[j].at(0);
 			if (front == rear)
 			{
-				
+				if (!can_insert(fin.inArr[j], tchain))
+				{
+					continue;
+				}
 				tchain.push_back(fin.inArr[j]);
 				charCnt += fin.inArr[j].size();
 				length = fin.inArr[j].size();
 				rear = fin.inArr[j].at(length - 1);
 				flag = true;
+				j = -1;
 			}
 			if (flag)
 			{
@@ -156,7 +175,7 @@ int wordHandler::gen_chain_char(char* words[], int len, vector<string> &wchain, 
 	return wchain.size();
 }
 
-vector<string> wordHandler::Operate(char head, char tail, vector<string> words, int length) {
+/*vector<string> wordHandler::Operate(char head, char tail, vector<string> words, int length) {
 	int i;
 	int j = 0;
 	vector<string>::iterator ite;
@@ -190,4 +209,4 @@ vector<string> wordHandler::Operate(char head, char tail, vector<string> words, 
 		}
 	}
 	return words;
-}
+}*/

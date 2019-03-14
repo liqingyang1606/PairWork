@@ -11,15 +11,22 @@
 #include "wordHandler.h"
 #include "output.h"
 using namespace std;
-/*
-int main() {
+
+/*int main() {
 	FileInput fin;
-	fin.readFile("D:\\test\\words.txt");
+	fin.readFile("D:\\word_chain\\01.txt");
 	wordHandler wh(fin);
 	char *words[20];
 	vector<string> result;
-	wh.gen_chain_char(words, 0, result, 0, 0, false);
-	cout << result.at(2) << endl;
+	wh.gen_chain_word(words, 0, result, 0, 0, false);
+
+	FileInput fin2;
+	fin2.readFile("D:\\word_chain\\02.txt");
+	wordHandler wh2(fin2);
+	wh2.gen_chain_char(words, 0, result, 0, 0, false);
+
+	output out2;
+	out2.tofile(result);
 }*/
 int main(int argc, char *argv[]) {
 	FileInput fin;
@@ -31,7 +38,7 @@ int main(int argc, char *argv[]) {
 	int _len = 0;
 	bool con = false;
 	bool recur = false;
-	char head, tail;
+	char head = '\0', tail = '\0';
 	char fun = '\0';
 	while (true)
 	{
@@ -72,7 +79,15 @@ int main(int argc, char *argv[]) {
 			break;
 		}
 	}
-	fin.readFile(argv[i + 1]);
+	try
+	{
+		fin.readFile(argv[i + 1]);
+	}
+	catch (FINException& fine)
+	{
+		fine.what();
+		return 0;
+	}
 	if (fun == 'w')
 	{
 		wordHandler whword(fin);
