@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include <string>
 using namespace std;
@@ -10,4 +11,3 @@ public:
 	~output();
 	void tofile(vector<string> chain);
 };
-

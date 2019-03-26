@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include <string>
 #include <exception>
@@ -14,7 +15,7 @@ public:
 	void process_line(char warr[]);
 };
 
-class FINException:public exception
+class FINException :public exception
 {
 public:
 	FINException();

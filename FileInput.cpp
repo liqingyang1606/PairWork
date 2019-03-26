@@ -67,7 +67,7 @@ bool FileInput::readFile(string path) {
 		throw FINException();
 		return false;
 	}
-	
+
 	char wordArr[5000];
 	while (!rdFile.eof())
 	{
