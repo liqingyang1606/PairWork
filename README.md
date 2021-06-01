@@ -1,4 +1,9 @@
 # PairWork: longest word chain.
-This is a course assignment from Software Engineering.
-The requirements of this assignment may be found [here](https://edu.cnblogs.com/campus/buaa/BUAA_SE_2019_RJ/homework/2637).
-The source code may contain some bugs. For technical assistance, please turn to liqingyang1602@buaa.edu.cn
+
+## Overview
+This repo contains source code for the "Pair Work" project of course "Software Engineering" (Beihang University, 2019).  
+The program takes a plain text file as input, and finds the longest "word chain" from the English words contained in the file.  
+See [this link](https://edu.cnblogs.com/campus/buaa/BUAA_SE_2019_RJ/homework/2637) for detailed requirements of this assignment. You must login with your **cnblogs** account to view it.
+
+## How to run this program
+pending...
